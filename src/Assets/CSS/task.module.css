@@ -1,0 +1,63 @@
+.task,
+.editModeTask {
+  margin: 2px;
+  position: relative;
+  display: inline-table;
+  text-align: center;
+  width: 160px;
+  background-color: #8cff66;
+  min-height: 120px;
+  transition: 0.3s;
+  border-radius: 15px;
+  font-size: 18px;
+}
+
+.editModeTask input {
+  margin-bottom: 2px;
+  text-align: center;
+  display: inline-block;
+  width: 97%;
+}
+
+.editModeTask button {
+  margin-bottom: 2px;
+}
+
+.editModeTask button:last-child {
+  margin-bottom: 6px;
+}
+
+.task {
+  cursor: move;
+}
+
+.task i {
+  font-size: 30px;
+  left: 5px;
+  top: 2px;
+  position: absolute;
+  cursor: pointer;
+  color: white;
+}
+
+.task i:hover {
+  color: #337ab7;
+}
+
+.content {
+  pointer-events: none;
+}
+
+.closeEditTask {
+  cursor: pointer;
+  position: absolute;
+  right: 7px;
+  top: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .task,
+  .editModeTask {
+    width: 100px;
+  }
+}

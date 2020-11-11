@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.element{
+margin: 2px;
+display: inline-table;
+text-align: center;
+width: 100px;
+height: 120px;
+cursor: move;
+transition: 0.3s;
+ background-clip: content-box;
+}
+.element *{
+pointer-events: none;
+}
+.element.onHover {
+ padding-left: 10px;
+ width: 90px;
+ opacity: 0.7;
+}
+.red{
+    background-color: #5ECFB4;
+}
+.yellow{
+    background-color: #5ECFB4;
+}
+.container {
+  width: 417px;
+  display: table-cell;
+  min-height: 100px;
+  height:100%;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  top:0;
+}
+img {
+        cursor: move; 
+}
+</style>
+<script>
+let activeElement;
+let draggedOverElement;
+let isDraggedOverElement = false;
+
+function allowDrop(ev) {
+ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData(ev.target.id, ev.target.id);
+  activeElement = ev.target.id;
+}
+
+function dragEnd(ev){
+  if (isDraggedOverElement && draggedOverElement !== activeElement)
+    exchangeElements(document.getElementById(draggedOverElement), document.getElementById(activeElement));
+}
+
+function exchangeElements(element1, element2)
+{
+    element1.classList.remove("onHover");
+    var clonedElement1 = element1.cloneNode(true);
+    var clonedElement2 = element2.cloneNode(true);
+
+    element2.parentNode.replaceChild(clonedElement1, element2);
+    element1.parentNode.replaceChild(clonedElement2, element1);
+
+    return clonedElement1;
+}
+
+function dragOver(ev){
+draggedOverElement = ev.target.id;
+isDraggedOverElement = true;
+if (draggedOverElement !== activeElement){
+ let el = document.getElementById(draggedOverElement);
+ el.classList.add("onHover");
+
+}
+}
+
+function drop(ev, el) {
+  if (!isDraggedOverElement)
+    el.appendChild(document.getElementById(activeElement));
+}
+
+function dragLeave(ev){
+isDraggedOverElement = false;
+let el = document.getElementById(draggedOverElement);
+el.classList.remove("onHover");
+}
+</script>
+</head>
+<body>
+<h1 style="text-align: center;">Backlog</h1>
+<h3>story 1</h3>
+<div>
+  <div id="div1" class="container"  ondrop="drop(event, this)" ondragover="allowDrop(event)"><p style="text-align: center;">TODO</p></div>
+  <div id="div2" class="container"  ondrop="drop(event, this)" ondragover="allowDrop(event)"><p style="text-align: center;">IN PROGRESS</p></div>
+  <div id="div3" class="container"  ondrop="drop(event, this)" ondragover="allowDrop(event)"><p style="text-align: center;">DONE</p></div>
+</div>
+
+<h3>story 2</h3>
+<div>
+  <div id="div4" class="container"  ondrop="drop(event, this)" ondragover="allowDrop(event)"><p style="text-align: center;">TODO</p></div>
+  <div id="div5" class="container"  ondrop="drop(event, this)" ondragover="allowDrop(event)"><p style="text-align: center;">IN PROGRESS</p></div>
+  <div id="div6" class="container"  ondrop="drop(event, this)" ondragover="allowDrop(event)"><p style="text-align: center;">DONE</p></div>
+</div>
+<br>
+
+<div id="drag1" draggable="true" ondragstart="drag(event)" ondragleave="dragLeave(event)" onDragOver="dragOver(event)" onDragEnd="dragEnd(event)" class="element red">1<p>QA</p><p>Assigned: Keith Pope</p></div>
+<div id="drag2" draggable="true" ondragstart="drag(event)" ondragleave="dragLeave(event)" onDragOver="dragOver(event)" onDragEnd="dragEnd(event)" class="element red">2</div>
+<div id="drag3" draggable="true" ondragstart="drag(event)" ondragleave="dragLeave(event)" onDragOver="dragOver(event)" onDragEnd="dragEnd(event)" class="element yellow">3</div>
+<div id="drag4" draggable="true" ondragstart="drag(event)" ondragleave="dragLeave(event)" onDragOver="dragOver(event)" onDragEnd="dragEnd(event)" class="element red">4</div>
+<div id="drag5" draggable="true" ondragstart="drag(event)" ondragleave="dragLeave(event)" onDragOver="dragOver(event)" onDragEnd="dragEnd(event)" class="element red">5</div>
+<div id="drag6" draggable="true" ondragstart="drag(event)" ondragleave="dragLeave(event)" onDragOver="dragOver(event)" onDragEnd="dragEnd(event)" class="element red">6</div>
+<div id="drag7" draggable="true" ondragstart="drag(event)" ondragleave="dragLeave(event)" onDragOver="dragOver(event)" onDragEnd="dragEnd(event)" class="element yellow">7</div>
+<div id="drag8" draggable="true" ondragstart="drag(event)" ondragleave="dragLeave(event)" onDragOver="dragOver(event)" onDragEnd="dragEnd(event)" class="element red">8</div>
+
+</body>
+</html>

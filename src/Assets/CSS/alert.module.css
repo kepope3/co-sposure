@@ -1,0 +1,10 @@
+.alertStyles.alertStyles {
+  transition: all 1s ease-out;
+  position: absolute;
+  z-index: 10000;
+}
+
+.hidden {
+  opacity: 0;
+  height: 0px;
+}

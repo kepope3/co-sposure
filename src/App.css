@@ -1,0 +1,55 @@
+.App {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: "Thasadith", sans-serif;
+  font-weight: 600;
+}
+
+.App button {
+  margin-right: 4px;
+}
+
+.App a {
+  cursor: pointer;
+}
+.App a:hover {
+  text-decoration: none;
+}
+.App h1 {
+  text-align: center;
+}
+
+.App select {
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-weight: 600;
+}
+
+.App select:focus {
+  outline: none;
+}
+
+.App .form-control {
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 768px) {
+  .App *,
+  .App input {
+    font-size: 15px;
+  }
+  .App h1,
+  .App h2,
+  .App strong {
+    font-size: 20px;
+  }
+  .App button,
+  .App .btn {
+    font-size: 15px;
+    padding: 3px;
+  }
+
+  .App button {
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,12 @@
+.sprintList {
+  position: absolute;
+  top: 0;
+}
+
+.btnWrapper button {
+  margin-bottom: 8px;
+}
+
+.btnWrapper button:not(:first-child) {
+  margin-left: 8px;
+}

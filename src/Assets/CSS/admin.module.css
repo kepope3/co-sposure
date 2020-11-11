@@ -1,0 +1,19 @@
+.projectSettings {
+  margin-top: 20px;
+}
+
+.addMember {
+  margin: 10px 0;
+}
+
+.addMember button {
+  margin-top: 5px;
+}
+
+.membersList {
+  margin-bottom: 10px;
+}
+.membersList button {
+  display: inherit;
+  margin-top: 5px;
+}

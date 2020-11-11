@@ -1,0 +1,64 @@
+.sideBar {
+  height: 97%;
+  width: 16%;
+  left: 10px;
+  position: fixed;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  transition: width 1s;
+  padding: 10px;
+  word-wrap: break-word;
+  overflow-y: auto;
+}
+
+.brand {
+  display: inline-block;
+  font-size: 25px;
+  transition: 1s;
+  font-weight: 700;
+}
+
+.websiteIcon {
+  font-size: 34px;
+}
+.collapsed {
+  width: 8%;
+}
+.btnWrapper {
+  margin-top: 16px;
+  background-color: #b9bbbd;
+  border-radius: 10px;
+  padding: 8px 8px 0 8px;
+}
+.btnWrapper * {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.collapsed .brand {
+  transform: rotate(360deg);
+  font-size: 15px;
+}
+.collapsed .body {
+  opacity: 0;
+}
+
+.toggleButton i {
+  cursor: pointer;
+  font-size: 35px;
+  color: black;
+}
+
+.toggleButton {
+  float: right;
+}
+
+.body {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+@media only screen and (max-width: 768px) {
+  .brand {
+    font-size: 20px;
+  }
+}
